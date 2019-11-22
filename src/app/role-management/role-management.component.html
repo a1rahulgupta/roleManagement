@@ -1,0 +1,202 @@
+
+<p-dialog [(visible)]="roleModal" modal="true" [contentStyle]="{'overflow':'auto','height':'380px'}" header="Create a new Role" [width]="600" dismissableMask="true"
+position="center" >
+
+     <div class="login-main">
+  <div class="container">
+
+    <div id="loginbox">
+      <div class="panel panel-info">
+        <div style="padding-top:30px" class="panel-body">
+          <form id="loginform" class="form-horizontal" [formGroup]="userRole" (ngSubmit)="addNewRole()" role="form">
+            <div style="margin-bottom: 25px" class="input-group">
+              <span class="input-group-addon">
+                <i class="icon-user"></i>
+              </span>
+              <input id="login-userName" type="text" class="form-control" formControlName="roleName" autofocus placeholder="Title">
+            </div>
+            
+            <div style="margin-top:10px" class="form-group">
+              <div class="col-sm-12 controls">
+                <button [disabled]="userRole.invalid" id="btn-login" type="submit" class="btn btn-primary"> Next </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+ 
+  
+</p-dialog>
+
+<p-dialog  modal="true" [contentStyle]="{'overflow':'auto','height':'380px'}" header=" Add-Permissions" [width]="800" dismissableMask="true"
+position="center" [(visible)]="permissionModal" [contentStyle]="{'max-height':'200px'}">
+    
+ 
+    <h3>Files</h3>
+    <hr>
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col"></th>
+            <th scope="col">Create</th>
+            <th scope="col">Delete</th>
+            <th scope="col">Download</th>
+            <th scope="col">Move</th>
+            <th scope="col">Design</th>
+            <th scope="col">Sign</th>
+            <th scope="col">Add Signature Task</th>
+            <th scope="col">Change signing Method</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+              <th scope="col">Files</th>
+              <th scope="col"><input type="checkbox" [(ngModel)]="permission.files.create"></th>
+              <th scope="col"><input type="checkbox" [(ngModel)]="permission.files.delete"></th>
+              <th scope="col"><input type="checkbox" [(ngModel)]="permission.files.download"></th>
+              <th scope="col"><input type="checkbox" [(ngModel)]="permission.files.move"></th>
+              <th scope="col"><input type="checkbox" [(ngModel)]="permission.files.Design"></th>
+              <th scope="col"><input type="checkbox" [(ngModel)]="permission.files.sign"></th>
+              <th scope="col"><input type="checkbox" [(ngModel)]="permission.files.addSignatuteTask"></th>
+              <th scope="col"><input type="checkbox" [(ngModel)]="permission.files.changingSigningMethod"></th>
+          </tr>
+        </tbody>
+      </table>
+      <hr>
+      <h3>Add Permissions</h3>
+      <hr>
+      <table class="table">
+          <thead>
+            <tr>
+              <th scope="col"></th>
+              <th scope="col">Create</th>
+              <th scope="col">Delete</th>
+              <th scope="col">Rename</th>
+              <th scope="col">Move</th>
+              <th scope="col">Download</th>
+              <th scope="col">Add Files</th>
+              
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+                <th scope="col">Template Folders</th>
+                <th scope="col"><input type="checkbox" [(ngModel)]="permission.templateFolders.create"></th>
+                <th scope="col"><input type="checkbox" [(ngModel)]="permission.templateFolders.delete"></th>
+                <th scope="col"><input type="checkbox" [(ngModel)]="permission.templateFolders.rename"></th>
+                <th scope="col"><input type="checkbox" [(ngModel)]="permission.templateFolders.move"></th>
+                <th scope="col"><input type="checkbox" [(ngModel)]="permission.templateFolders.download"></th>
+                <th scope="col"><input type="checkbox" [(ngModel)]="permission.templateFolders.addFiles"></th>
+               
+            </tr>
+            <tr>
+                <th scope="col">Private Folder</th>
+                <th scope="col"><input type="checkbox" [(ngModel)]="permission.privateFolders.create"></th>
+                <th scope="col"><input type="checkbox" [(ngModel)]="permission.privateFolders.delete"></th>
+                <th scope="col"><input type="checkbox" [(ngModel)]="permission.privateFolders.rename"></th>
+                <th scope="col"><input type="checkbox" [(ngModel)]="permission.privateFolders.move"></th>
+                <th scope="col"><input type="checkbox" [(ngModel)]="permission.privateFolders.download"></th>
+                <th scope="col"><input type="checkbox" [(ngModel)]="permission.privateFolders.addFiles"></th>
+               
+            </tr>
+            <tr>
+                <th scope="col">Workflow folder</th>
+                <th scope="col"><input type="checkbox" [(ngModel)]="permission.workflowFolders.create"></th>
+                <th scope="col"><input type="checkbox" [(ngModel)]="permission.workflowFolders.delete"></th>
+                <th scope="col"><input type="checkbox" [(ngModel)]="permission.workflowFolders.rename"></th>
+                <th scope="col"><input type="checkbox" [(ngModel)]="permission.workflowFolders.move"></th>
+                <th scope="col"><input type="checkbox" [(ngModel)]="permission.workflowFolders.download"></th>
+                <th scope="col"><input type="checkbox" [(ngModel)]="permission.workflowFolders.addFiles"></th>
+               
+            </tr>
+          </tbody>
+        </table>
+        <hr>
+        <h3>Users</h3>
+        <hr>
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col"></th>
+                <th scope="col">Create</th>
+                <th scope="col">Update</th>
+                <th scope="col">Delete</th>
+                <th scope="col">View folders</th>
+                
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                  <th scope="col">Users</th>
+                  <th scope="col"><input type="checkbox" [(ngModel)]="permission.users.create"></th>
+                  <th scope="col"><input type="checkbox" [(ngModel)]="permission.users.update"></th>
+                  <th scope="col"><input type="checkbox" [(ngModel)]="permission.users.delete"></th>
+                  <th scope="col"><input type="checkbox" [(ngModel)]="permission.users.viewFolders"></th>
+                 
+              </tr>
+            </tbody>
+          </table>
+          <button type="button" class="btn btn-primary" (click)="updatePermission(permission)">Save</button>
+  </p-dialog>
+
+
+
+
+  <div class="header">
+  <a href="javascript:void(0)" class="logo">User Role</a>
+  <div class="header-right">
+    <a type="button" class="active" (click)="showDialog()" pButton  label="New Role"></a>
+  </div>
+</div>
+
+<div class="item float-right">
+    <form>
+      <label>Count:</label>
+      <div class="select-group" style="width:100px;">
+        <select [(ngModel)]="fetchSize" [ngModelOptions]="{standalone: true}"
+                (ngModelChange)="sortBy($event,'show')" class="custom-select">
+          <option *ngFor="let fetchSize of pageValue" [ngValue]="fetchSize" [selected]="fetchValue == fetchSize.size">
+            {{fetchSize.size}}
+          </option>
+        </select>
+      </div>
+    </form>
+  </div>
+<div style="text-align:center">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Users</th>
+        <th scope="col">Permissions</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let role of listAllroles">
+        <td>{{role.roleName}}</td>
+        <td>-</td>
+        <td>-</td>
+        <td>
+          
+                <a href="javascript:void(0)"><i class="fa fa-pencil" style="font-size:20px" (click)="addPermission(role._id)"aria-hidden="true"></i></a>
+                <span style="padding:10px;"></span>
+                <a href="javascript:void(0)"><i class="fa fa-times" style="font-size:20px" (click)="deleteUserRole(role._id)" aria-hidden="true"></i></a>
+            <span style="padding:10px;"></span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div align="center" *ngIf = "listAllroles && listAllroles.length == 0"><strong>No Record Found</strong> </div>
+  <button [disabled]="pagination?.page === 1" (click)="prev()" title="Previous"
+  [class]="pagination?.page === 1?'btn btn-primary float-left':'btn btn-primary float-left'">Previous
+</button>
+<button [disabled]="pagination?.page === totalCount" (click)="next()" title="Next"
+[class]="pagination?.page === totalCount?'btn btn-primary float-right':'btn btn-primary float-right'">Next
+</button>
+  
+ 
+</div>
