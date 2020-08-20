@@ -25,7 +25,7 @@
     "@angular/router": "^7.0.0",
     "amcharts3-angular2": "^1.2.1",
     "async-waterfall": "^0.1.5",
-    "bcrypt": "^3.0.1",
+    "bcrypt": "^5.0.0",
     "body-parser": "^1.18.3",
     "core-js": "^2.5.4",
     "cors": "^2.8.4",
